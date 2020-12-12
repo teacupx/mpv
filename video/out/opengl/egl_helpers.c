@@ -86,24 +86,9 @@ static bool create_context(struct ra_ctx *ctx, EGLDisplay display,
     EGLenum api;
     EGLint rend;
     const char *name;
-
-    switch (es_version) {
-    case 0:
-        api = EGL_OPENGL_API;
-        rend = EGL_OPENGL_BIT;
-        name = "Desktop OpenGL";
-        break;
-    case 2:
         api = EGL_OPENGL_ES_API;
         rend = EGL_OPENGL_ES2_BIT;
         name = "GLES 2.x";
-        break;
-    case 3:
-        api = EGL_OPENGL_ES_API;
-        rend = EGL_OPENGL_ES3_BIT;
-        name = "GLES 3.x";
-        break;
-    default: abort();
     }
 
     MP_VERBOSE(ctx, "Trying to create %s context.\n", name);
